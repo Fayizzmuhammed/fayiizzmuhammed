@@ -230,6 +230,30 @@
     letter-spacing:0.04em;
   }
 
+  .redirect-note{
+    text-align:center;
+    font-size:13px;
+    color:rgba(255,255,255,0.65);
+    margin:14px auto 0;
+    padding:10px 16px;
+    border-radius:100px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--glass-border);
+    width:fit-content;
+  }
+
+  .redirect-note a{
+    color:var(--gold);
+    text-decoration:underline;
+  }
+
+  .redirect-note #countdown{
+    color:var(--gold);
+    font-weight:700;
+  }
+
   .proof{
     margin-top:52px;
     background:rgba(255,255,255,0.05);
@@ -356,6 +380,8 @@ src="https://www.facebook.com/tr?id=797348653406285&ev=PageView&noscript=1"
 
   <div class="trust">Private access · Limited member spots</div>
 
+  <p class="redirect-note">Redirecting you to WhatsApp in <span id="countdown">5</span>s… <a href="https://chat.whatsapp.com/LrCh1WUWFk3651bpk7s1ME" id="redirect-now-link">Go now</a></p>
+
 
 </div>
 
@@ -375,6 +401,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+// Auto-redirect countdown
+(function () {
+  var REDIRECT_URL = "https://chat.whatsapp.com/LrCh1WUWFk3651bpk7s1ME";
+  var countdownEl = document.getElementById('countdown');
+  var secondsLeft = 5;
+
+  var timer = setInterval(function () {
+    secondsLeft -= 1;
+    if (countdownEl) countdownEl.textContent = secondsLeft;
+    if (secondsLeft <= 0) {
+      clearInterval(timer);
+      window.location.href = REDIRECT_URL;
+    }
+  }, 1000);
+})();
 </script>
 
 </body>
