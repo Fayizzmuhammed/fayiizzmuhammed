@@ -385,22 +385,7 @@ src="https://www.facebook.com/tr?id=1275896705608634&ev=PageView&noscript=1"
 
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const buttons = document.querySelectorAll("a, button");
-  buttons.forEach(function(btn){
-    btn.addEventListener("click", function(){
-      if (typeof fbq === 'function') {
-        fbq('track', 'Subscribe');
-      }
-      setTimeout(function(){
-        if (btn.href) {
-          window.location.href = btn.href;
-        }
-      }, 300);
-    });
-  });
-});
+
 
 // Auto-redirect countdown
 (function () {
